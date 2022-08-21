@@ -95,8 +95,22 @@ class LinkedList:
             count+=1
             p=p.next
 
-
-
+    # insert node at a given index
+    def insert_at_index(self,index,data):
+        if index<0 or index>=self.get_length():
+            raise Exception("Invalid Index Value Inserted")
+        if index==0:
+            self.insert_node_at_beginning(data)
+            return
+        p =self.head
+        count =1
+        while p.next:
+            if index==count:
+                t=p.next
+                p.next=Node(data,t)
+                return
+            count+=1
+            p=p.next
 
 
 if __name__ == '__main__':
@@ -131,6 +145,15 @@ if __name__ == '__main__':
     ll.insert_data_after_value(5,10)
     ll.insert_data_after_value(8,100)
     ll.insert_data_after_value(1,123)
+    ll.print()
+    print("Length Of Linked List : {}".format(ll.get_length()))
+    ll.insert_at_index(2,45)
+    ll.print()
+    ll.insert_at_index(10,200)
+    ll.print()
+    ll.insert_at_index(1, 20)
+    ll.print()
+    ll.insert_at_index(ll.get_length()-1, 1000)
     ll.print()
     print("Length Of Linked List : {}".format(ll.get_length()))
 
