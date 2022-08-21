@@ -72,6 +72,32 @@ class LinkedList:
         for d in data:
             self.insert_node_at_end(d)
 
+    # remove by value
+    def remove_by_value(self,data_value):
+        p=self.head
+        count=0
+        while p:
+            if p.data==data_value:
+                self.remove_node_at(count)
+                return
+            count+=1
+            p=p.next
+
+    # insert data after a given value
+    def insert_data_after_value(self,data_after,data_value):
+        p = self.head
+        count=0
+        while p:
+            if p.data==data_after:
+                t=p.next
+                p.next=Node(data_value,t)
+                break
+            count+=1
+            p=p.next
+
+
+
+
 
 if __name__ == '__main__':
     ll=LinkedList()
@@ -92,11 +118,21 @@ if __name__ == '__main__':
     ll.print()
     print("Length Of Linked List : {}".format(ll.get_length()))
     ll.insert_nodes_via_list([1,2,3,4,5,6,7,8,9])
-    ll.insert_node_at_end("Vurjana")
-    ll.insert_node_at_beginning("Karthik")
+    ll.insert_node_at_end(45)
+    ll.insert_node_at_beginning(89)
     ll.print()
     print("Length Of Linked List : {}".format(ll.get_length()))
-
+    ll.remove_by_value(2)
+    ll.remove_by_value(9)
+    ll.remove_by_value(89)
+    ll.remove_by_value(45)
+    ll.print()
+    print("Length Of Linked List : {}".format(ll.get_length()))
+    ll.insert_data_after_value(5,10)
+    ll.insert_data_after_value(8,100)
+    ll.insert_data_after_value(1,123)
+    ll.print()
+    print("Length Of Linked List : {}".format(ll.get_length()))
 
 
 
