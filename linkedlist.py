@@ -112,6 +112,17 @@ class LinkedList:
             count+=1
             p=p.next
 
+    # reverse the linked list
+    def reverse_list(self):
+        t=c=self.head
+        p = None
+        while t:
+            c=c.next
+            t.next=p
+            p=t
+            t=c
+        self.head=p
+        return self.print()
 
 if __name__ == '__main__':
     ll=LinkedList()
@@ -156,7 +167,8 @@ if __name__ == '__main__':
     ll.insert_at_index(ll.get_length()-1, 1000)
     ll.print()
     print("Length Of Linked List : {}".format(ll.get_length()))
-
+    ll.reverse_list()
+    ll.reverse_list()
 
 
 
