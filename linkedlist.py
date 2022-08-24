@@ -124,6 +124,7 @@ class LinkedList:
         self.head=p
         return self.print()
 
+
 if __name__ == '__main__':
     ll=LinkedList()
     ll.insert_node_at_beginning(5)
